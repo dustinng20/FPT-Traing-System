@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPT Traing System", "FPT Traing System\FPT Traing System.csproj", "{09406CB6-23B5-4CE0-A70D-FAB76ED7081F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09406CB6-23B5-4CE0-A70D-FAB76ED7081F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09406CB6-23B5-4CE0-A70D-FAB76ED7081F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09406CB6-23B5-4CE0-A70D-FAB76ED7081F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09406CB6-23B5-4CE0-A70D-FAB76ED7081F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C21A88F-BE18-4F0A-B32E-A56938E5BDC8}
+	EndGlobalSection
+EndGlobal
