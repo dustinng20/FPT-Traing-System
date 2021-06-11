@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<FPT_Traing_System.Models.Category>
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Categories</h2>
+
+
+<table class="table">
+	<thead class="thead-light">
+		<tr>
+			<th scope="col">No.</th>
+			<th scope="col">Category Name</th>
+			<th scope="col">Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var category in Model)
+		{
+<tr>
+	<th scope="row">@category.Id</th>
+	<td>@category.Description</td>
+	<td>@category.Name</td>
+	<td>
+		<a href="#" class="btn btn-info">Details</a>
+		<a href="#" class="btn btn-default">Edit</a>
+		<a href="#" class="btn btn-danger">Delete</a>
+	</td>
+</tr>}
+	</tbody>
+</table>
+
