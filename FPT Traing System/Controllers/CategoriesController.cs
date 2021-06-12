@@ -33,12 +33,27 @@ namespace FPT_Traing_System.Controllers
 			return View(category);
 		}
 
-
+		[HttpGet]
 		public ActionResult Create()
 		{
 			return View();
 		}
 
+
+		[HttpPost]
+		public ActionResult Create(Category category)
+		{
+			var newCategory = new Category()
+			{
+				Name = category.Name,
+				Description = category.Description
+			};
+
+			_context.Categories.Add(newCategory);
+			_context.SaveChanges();
+
+			return RedirectToAction("Index");
+		}
 
 
 
