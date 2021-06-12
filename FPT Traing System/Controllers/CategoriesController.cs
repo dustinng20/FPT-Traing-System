@@ -75,7 +75,23 @@ namespace FPT_Traing_System.Controllers
 
 			var categoryInDb = _context.Categories.SingleOrDefault(t => t.Id == id);
 			if (categoryInDb == null) return HttpNotFound();
+
 			return View(categoryInDb);
+		}
+
+		[HttpPost]
+		public ActionResult Edit(Category category)
+		{
+			var categoryInDb = _context.Categories.SingleOrDefault(t => t.Id == category.Id);
+			if (categoryInDb == null) return HttpNotFound();
+
+			categoryInDb.Name = category.Name;
+			categoryInDb.Description = category.Description;
+
+			_context.SaveChanges();
+
+			return RedirectToAction("Index");
+
 		}
 
 
