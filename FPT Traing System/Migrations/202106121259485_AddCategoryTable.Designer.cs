@@ -7,13 +7,13 @@ namespace FPT_Traing_System.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddCategoryModel1 : IMigrationMetadata
+    public sealed partial class AddCategoryTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCategoryModel1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddCategoryTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106120121418_AddCategoryModel1"; }
+            get { return "202106121259485_AddCategoryTable"; }
         }
         
         string IMigrationMetadata.Source

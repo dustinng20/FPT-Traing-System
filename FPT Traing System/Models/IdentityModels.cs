@@ -16,12 +16,16 @@ namespace FPT_Traing_System.Models
 			// Add custom user claims here
 			return userIdentity;
 		}
+		
+
 	}
 
-	//public DbSet<Category> Categories { get; set; }
+
 
 	public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 	{
+		public DbSet<Category> Categories { get; set; }
+		public DbSet<Course> Courses { get; set; }
 		public ApplicationDbContext()
 				: base("DefaultConnection", throwIfV1Schema: false)
 		{

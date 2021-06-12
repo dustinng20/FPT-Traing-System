@@ -169,23 +169,22 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106101357136_AddCategoryModel.cs" />
-    <Compile Include="Migrations\202106101357136_AddCategoryModel.Designer.cs">
-      <DependentUpon>202106101357136_AddCategoryModel.cs</DependentUpon>
+    <Compile Include="Migrations\202106120303255_AddCourseModel.cs" />
+    <Compile Include="Migrations\202106120303255_AddCourseModel.Designer.cs">
+      <DependentUpon>202106120303255_AddCourseModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106101432127_AddCategoryModel2.cs" />
-    <Compile Include="Migrations\202106101432127_AddCategoryModel2.Designer.cs">
-      <DependentUpon>202106101432127_AddCategoryModel2.cs</DependentUpon>
+    <Compile Include="Migrations\202106121259485_AddCategoryTable.cs" />
+    <Compile Include="Migrations\202106121259485_AddCategoryTable.Designer.cs">
+      <DependentUpon>202106121259485_AddCategoryTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202106120121418_AddCategoryModel1.cs" />
-    <Compile Include="Migrations\202106120121418_AddCategoryModel1.Designer.cs">
-      <DependentUpon>202106120121418_AddCategoryModel1.cs</DependentUpon>
+    <Compile Include="Migrations\202106121303491_CategoryandCourseTable.cs" />
+    <Compile Include="Migrations\202106121303491_CategoryandCourseTable.Designer.cs">
+      <DependentUpon>202106121303491_CategoryandCourseTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -272,14 +271,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106101357136_AddCategoryModel.resx">
-      <DependentUpon>202106101357136_AddCategoryModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106120303255_AddCourseModel.resx">
+      <DependentUpon>202106120303255_AddCourseModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106101432127_AddCategoryModel2.resx">
-      <DependentUpon>202106101432127_AddCategoryModel2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106121259485_AddCategoryTable.resx">
+      <DependentUpon>202106121259485_AddCategoryTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106120121418_AddCategoryModel1.resx">
-      <DependentUpon>202106120121418_AddCategoryModel1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106121303491_CategoryandCourseTable.resx">
+      <DependentUpon>202106121303491_CategoryandCourseTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

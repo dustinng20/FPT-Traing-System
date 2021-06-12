@@ -3,7 +3,7 @@ namespace FPT_Traing_System.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddCategoryModel1 : DbMigration
+    public partial class AddCourseModel : DbMigration
     {
         public override void Up()
         {
