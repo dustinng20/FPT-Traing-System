@@ -30,15 +30,23 @@ namespace FPT_Traing_System.Controllers
 
 		}
 
+		public ActionResult Create()
+		{
+			return View();
+		}
+
+
 		public ActionResult Edit()
 		{
 			return View();
 		}
 
-		public ActionResult Create()
+
+		public ActionResult Delete()
 		{
 			return View();
 		}
+
 
 		public ActionResult Index()
 		{
