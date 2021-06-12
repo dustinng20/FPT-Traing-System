@@ -10,30 +10,36 @@ namespace FPT_Traing_System.Controllers
 	public class CategoriesController : Controller
 	{
 		// GET: Categories
-		private List<Category> _categories = new List<Category>();
+		private ApplicationDbContext _context;
 
 		public CategoriesController()
 		{
-			_categories.Add(new Category()
-			{
-				Id = 1,
-				Name = "Family",
-				Description = "Buy Milk",
-			});
-
-			_categories.Add(new Category()
-			{
-				Id = 2,
-				Name = "Professional",
-				Description = "Report the Progress of the Project",
-			});
-
+			_context = new ApplicationDbContext(); //use adbc class to connect database
 		}
+
+		public ActionResult Index()
+		{
+			var categories = _context.Categories.ToList();
+			return View(categories);
+		}
+
+
+		public ActionResult Details(int? id)
+		{
+			if (id == null) return HttpNotFound();
+			var category = _context.Categories.SingleOrDefault(t => t.Id == id);
+			if (category == null) return HttpNotFound();
+
+			return View(category);
+		}
+
 
 		public ActionResult Create()
 		{
 			return View();
 		}
+
+
 
 
 		public ActionResult Edit()
@@ -42,15 +48,23 @@ namespace FPT_Traing_System.Controllers
 		}
 
 
-		public ActionResult Delete()
+
+
+		public ActionResult Delete(int? id)
 		{
-			return View();
+			if (id == null) return HttpNotFound();
+		
+			var category = _context.Categories.SingleOrDefault(t => t.Id == id);
+		
+			if (category == null) return HttpNotFound();
+			
+			_context.Categories.Remove(category);
+			_context.SaveChanges();
+
+			return RedirectToAction("Index");
 		}
 
 
-		public ActionResult Index()
-		{
-			return View(_categories);
-		}
+
 	}
 }

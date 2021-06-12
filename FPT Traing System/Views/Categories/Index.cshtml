@@ -26,8 +26,11 @@
 	<td>@category.Description</td>
 	<td>@category.Name</td>
 	<td>
+		@Html.ActionLink("Details", "Details", "Categories", new { id = category.Id}, new { @class = "btn btn-info" })
+
 		@Html.ActionLink("Edit", "Edit", "Categories", null, new { @class = "btn btn-default" })
-		@Html.ActionLink("Delete", "Delete", "Categories", null, new { @class = "btn btn-danger" })
+		@Html.ActionLink("Delete", "Delete", "Categories", new { id = category.Id}, new { @class = "btn btn-danger" })
+
 
 	</td>
 </tr>}

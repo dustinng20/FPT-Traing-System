@@ -1,0 +1,18 @@
+﻿@model FPT_Traing_System.Models.Category
+
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="form-group">
+	@Html.ActionLink("Back to Category", "Index", "Categories", null, new { @class = "btn btn-primary" })
+</div>
+
+<div class="panel panel-primary">
+	<div class="panel-heading">Category Description:  @Model.Description </div>
+	<div class="panel-body">
+		<p>Category Name:  @Model.Name</p>
+	</div>
+</div>
