@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202106101432127_AddCategoryModel2.Designer.cs">
       <DependentUpon>202106101432127_AddCategoryModel2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106120121418_AddCategoryModel1.cs" />
+    <Compile Include="Migrations\202106120121418_AddCategoryModel1.Designer.cs">
+      <DependentUpon>202106120121418_AddCategoryModel1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -270,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106101432127_AddCategoryModel2.resx">
       <DependentUpon>202106101432127_AddCategoryModel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106120121418_AddCategoryModel1.resx">
+      <DependentUpon>202106120121418_AddCategoryModel1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

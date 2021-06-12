@@ -7,8 +7,8 @@ using System.Web.Mvc;
 
 namespace FPT_Traing_System.Controllers
 {
-		public class CategoriesController : Controller
-		{
+	public class CategoriesController : Controller
+	{
 		// GET: Categories
 		private List<Category> _categories = new List<Category>();
 
@@ -29,9 +29,15 @@ namespace FPT_Traing_System.Controllers
 			});
 
 		}
-		public ActionResult Index()
-				{
-						return View(_categories);
-				}
+		
+		public ActionResult Create()
+		{
+			return View();
 		}
+		
+		public ActionResult Index()
+		{
+			return View(_categories);
+		}
+	}
 }
