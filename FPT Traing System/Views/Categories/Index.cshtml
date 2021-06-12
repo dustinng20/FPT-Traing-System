@@ -4,8 +4,11 @@
 	ViewBag.Title = "Index";
 }
 
-<h2>Categories</h2>
+<h2>Category</h2>
 
+<div class="form-group">
+	@Html.ActionLink("Create", "Create", "Categories", null, new { @class = "btn btn-primary" })
+</div>
 
 <table class="table">
 	<thead class="thead-light">
@@ -23,9 +26,9 @@
 	<td>@category.Description</td>
 	<td>@category.Name</td>
 	<td>
-		<a href="#" class="btn btn-info">Details</a>
-		<a href="#" class="btn btn-default">Edit</a>
-		<a href="#" class="btn btn-danger">Delete</a>
+		@Html.ActionLink("Edit", "Edit", "Categories", null, new { @class = "btn btn-default" })
+		@Html.ActionLink("Delete", "Delete", "Categories", null, new { @class = "btn btn-danger" })
+
 	</td>
 </tr>}
 	</tbody>
