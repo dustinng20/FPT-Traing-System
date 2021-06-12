@@ -10,6 +10,19 @@
 	@Html.ActionLink("Create", "Create", "Categories", null, new { @class = "btn btn-primary" })
 </div>
 
+@using (Html.BeginForm("Index", "Categories", FormMethod.Get))
+{
+
+	<div class=" form-group">
+		<label>Search by Category Name:</label>
+		@Html.TextBox("searchString", null, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Search</button>
+	</div>
+}
+
+
 <table class="table">
 	<thead class="thead-light">
 		<tr>
@@ -21,19 +34,19 @@
 	<tbody>
 		@foreach (var category in Model)
 		{
-<tr>
-	<th scope="row">@category.Id</th>
-	<td>@category.Description</td>
-	<td>@category.Name</td>
-	<td>
-		@Html.ActionLink("Details", "Details", "Categories", new { id = category.Id}, new { @class = "btn btn-info" })
+			<tr>
+				<th scope="row">@category.Id</th>
+				<td>@category.Name</td>
+				<td>@category.Description</td>
+				<td>
+					@Html.ActionLink("Details", "Details", "Categories", new { id = category.Id }, new { @class = "btn btn-info" })
+					@Html.ActionLink("Edit", "Edit", "Categories", new { id = category.Id }, new { @class = "btn btn-default" })
+					@Html.ActionLink("Delete", "Delete", "Categories", new { id = category.Id }, new { @class = "btn btn-danger" })
 
-		@Html.ActionLink("Edit", "Edit", "Categories", null, new { @class = "btn btn-default" })
-		@Html.ActionLink("Delete", "Delete", "Categories", new { id = category.Id}, new { @class = "btn btn-danger" })
 
-
-	</td>
-</tr>}
+				</td>
+			</tr>
+		}
 	</tbody>
 </table>
 

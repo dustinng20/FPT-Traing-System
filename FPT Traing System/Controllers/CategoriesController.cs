@@ -1,4 +1,5 @@
 ﻿using FPT_Traing_System.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,15 @@ namespace FPT_Traing_System.Controllers
 			_context = new ApplicationDbContext(); //use adbc class to connect database
 		}
 
-		public ActionResult Index()
+		public ActionResult Index(string searchString)
 		{
 			var categories = _context.Categories.ToList();
+
+			if (!searchString.IsNullOrWhiteSpace())
+			{
+				categories = _context.Categories.Where(t => t.Name.Contains(searchString)).ToList();
+			}
+
 			return View(categories);
 		}
 
@@ -43,6 +50,11 @@ namespace FPT_Traing_System.Controllers
 		[HttpPost]
 		public ActionResult Create(Category category)
 		{
+			if (!ModelState.IsValid)
+			{
+				return View(category);
+			}
+
 			var newCategory = new Category()
 			{
 				Name = category.Name,
@@ -56,10 +68,14 @@ namespace FPT_Traing_System.Controllers
 		}
 
 
-
-		public ActionResult Edit()
+		[HttpGet]
+		public ActionResult Edit(int? id)
 		{
-			return View();
+			if (id == null) return HttpNotFound();
+
+			var categoryInDb = _context.Categories.SingleOrDefault(t => t.Id == id);
+			if (categoryInDb == null) return HttpNotFound();
+			return View(categoryInDb);
 		}
 
 
@@ -68,11 +84,11 @@ namespace FPT_Traing_System.Controllers
 		public ActionResult Delete(int? id)
 		{
 			if (id == null) return HttpNotFound();
-		
+
 			var category = _context.Categories.SingleOrDefault(t => t.Id == id);
-		
+
 			if (category == null) return HttpNotFound();
-			
+
 			_context.Categories.Remove(category);
 			_context.SaveChanges();
 
