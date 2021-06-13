@@ -1,0 +1,17 @@
+﻿@model FPT_Traing_System.Models.Course
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details of Courses</h2>
+
+<div class="form-group">
+	@Html.ActionLink("Back to Course", "Index", "Courses", null, new { @class = "btn btn-primary" })
+</div>
+
+<div class="panel panel-primary">
+	<div class="panel-heading">Course Description:  @Model.Description </div>
+	<div class="panel-body">
+		<p>Category Name:  @Model.Name</p>
+	</div>
+</div>

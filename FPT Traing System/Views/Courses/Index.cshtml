@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FPT_Traing_System.Models.Course>
+
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Course</h2>
+
+<div class="form-group">
+	@Html.ActionLink("Create", "Create", "Courses", null, new { @class = "btn btn-primary" })
+</div>
+
+@using (Html.BeginForm("Index", "Courses", FormMethod.Get))
+{
+
+	<div class=" form-group">
+		<label>Search by Course Name:</label>
+		@Html.TextBox("searchString", null, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Search</button>
+	</div>
+}
+
+
+<table class="table">
+	<thead class="thead-light">
+		<tr>
+			<th scope="col">No.</th>
+			<th scope="col">Course Name</th>
+			<th scope="col">Category Name</th>
+			<th scope="col">Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var course in Model)
+
+		{
+			<tr>
+				<th scope="row">@course.Id</th>
+				<td>@course.Name</td>
+				<td>@course.Description</td>
+				<td>
+					@Html.ActionLink("Details", "Details", "Courses", new { id = course.Id }, new { @class = "btn btn-info" })
+					@Html.ActionLink("Edit", "Edit", "Courses", new { id = course.Id }, new { @class = "btn btn-default" })
+					@Html.ActionLink("Delete", "Delete", "Courses", new { id = course.Id }, new { @class = "btn btn-danger" })
+
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
