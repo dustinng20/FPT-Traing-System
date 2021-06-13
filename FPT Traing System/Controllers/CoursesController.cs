@@ -87,9 +87,33 @@ namespace FPT_Traing_System.Controllers
 			return RedirectToAction("Index");
 		}
 
-		public ActionResult Edit()
+
+		[HttpGet]
+		public ActionResult Edit(int? id)
 		{
-			return View();
+			if (id == null) return HttpNotFound();
+
+			var courseInDb = _context.Courses.SingleOrDefault(c => c.Id == id);
+			if (courseInDb == null) return HttpNotFound();
+
+			return View(courseInDb);
+		}
+
+
+		[HttpPost]
+		public ActionResult Edit(Course course)
+		{
+			var courseInDb = _context.Courses.SingleOrDefault(c => c.Id == course.Id);
+			if (courseInDb == null) return HttpNotFound();
+
+			courseInDb.Name = course.Name;
+			courseInDb.Description = course.Description;
+			courseInDb.Category = course.Category;
+
+
+			_context.SaveChanges();
+
+			return RedirectToAction("Index");
 		}
 	}
 }
