@@ -86,5 +86,10 @@ namespace FPT_Traing_System.Controllers
 
 			return RedirectToAction("Index");
 		}
+
+		public ActionResult Edit()
+		{
+			return View();
+		}
 	}
 }
