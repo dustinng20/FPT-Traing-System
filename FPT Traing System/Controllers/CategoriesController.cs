@@ -88,7 +88,16 @@ namespace FPT_Traing_System.Controllers
 			categoryInDb.Name = category.Name;
 			categoryInDb.Description = category.Description;
 
-			_context.SaveChanges();
+			try
+			{
+				_context.SaveChanges();
+
+			}
+			catch (System.Data.Entity.Infrastructure.DbUpdateException)
+			{
+				ModelState.AddModelError("", "Category Name alreay exists");
+				return View(category);
+			}
 
 			return RedirectToAction("Index");
 
