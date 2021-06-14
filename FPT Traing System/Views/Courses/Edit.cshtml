@@ -11,6 +11,7 @@
 
 @using (Html.BeginForm("Edit", "Courses", FormMethod.Post))
 {
+	@Html.HiddenFor(m => m.Course.Id)
 	<div class="form-group">
 		@Html.LabelFor(m => m.Course.Name)
 		@Html.EditorFor(m => m.Course.Name, new { htmlAttributes = new { @class = "form-control" } })

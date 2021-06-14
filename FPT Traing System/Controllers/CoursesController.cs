@@ -132,7 +132,7 @@ namespace FPT_Traing_System.Controllers
 
 			courseInDb.Name = course.Name;
 			courseInDb.Description = course.Description;
-			courseInDb.Category = course.Category;
+			courseInDb.CategoryId = course.CategoryId;
 
 
 			_context.SaveChanges();
