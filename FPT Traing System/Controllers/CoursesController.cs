@@ -64,7 +64,7 @@ namespace FPT_Traing_System.Controllers
 			var newCourse = new Course()
 			{
 				Name = course.Name,
-				Category = course.Category,
+				CategoryId = course.CategoryId,
 				Description = course.Description
 			};
 
