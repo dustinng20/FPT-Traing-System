@@ -211,12 +211,17 @@
     <Compile Include="Migrations\202106140722110_AddUserIdFKtoCourseModel.Designer.cs">
       <DependentUpon>202106140722110_AddUserIdFKtoCourseModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106140852574_AddUserInfosTable.cs" />
+    <Compile Include="Migrations\202106140852574_AddUserInfosTable.Designer.cs">
+      <DependentUpon>202106140852574_AddUserInfosTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="viewModel\CourseCategoriesViewModel.cs" />
@@ -232,6 +237,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -286,7 +292,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -328,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106140722110_AddUserIdFKtoCourseModel.resx">
       <DependentUpon>202106140722110_AddUserIdFKtoCourseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106140852574_AddUserInfosTable.resx">
+      <DependentUpon>202106140852574_AddUserInfosTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
