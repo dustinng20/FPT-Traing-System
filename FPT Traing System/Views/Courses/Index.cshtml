@@ -36,17 +36,18 @@
 		@foreach (var course in Model)
 
 		{
-			<tr>
-				<th scope="row">@course.Id</th>
-				<td>@course.Name</td>
-				<td>@course.Description</td>
-				<td>
-					@Html.ActionLink("Details", "Details", "Courses", new { id = course.Id }, new { @class = "btn btn-info" })
-					@Html.ActionLink("Edit", "Edit", "Courses", new { id = course.Id }, new { @class = "btn btn-default" })
-					@Html.ActionLink("Delete", "Delete", "Courses", new { id = course.Id }, new { @class = "btn btn-danger" })
+		<tr>
+			<th scope="row">@course.Id</th>
+			<td>@course.Name</td>
+			<td>@course.Category.Name</td>
+			<td>@course.Description</td>
+			<td>
+				@Html.ActionLink("Details", "Details", "Courses", new { id = course.Id }, new { @class = "btn btn-info" })
+				@Html.ActionLink("Edit", "Edit", "Courses", new { id = course.Id }, new { @class = "btn btn-default" })
+				@Html.ActionLink("Delete", "Delete", "Courses", new { id = course.Id }, new { @class = "btn btn-danger" })
 
-				</td>
-			</tr>
+			</td>
+		</tr>
 		}
 	</tbody>
 </table>

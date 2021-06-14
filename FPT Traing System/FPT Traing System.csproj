@@ -195,6 +195,18 @@
     <Compile Include="Migrations\202106130409374_AddCourseTable1.Designer.cs">
       <DependentUpon>202106130409374_AddCourseTable1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106140310124_AddFKCourseModel.cs" />
+    <Compile Include="Migrations\202106140310124_AddFKCourseModel.Designer.cs">
+      <DependentUpon>202106140310124_AddFKCourseModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106140420425_UpdateCategoryModel.cs" />
+    <Compile Include="Migrations\202106140420425_UpdateCategoryModel.Designer.cs">
+      <DependentUpon>202106140420425_UpdateCategoryModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106140424302_UpdateCourseModel.cs" />
+    <Compile Include="Migrations\202106140424302_UpdateCourseModel.Designer.cs">
+      <DependentUpon>202106140424302_UpdateCourseModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -203,6 +215,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="viewModel\CourseCategoriesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -215,7 +228,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -270,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -299,6 +312,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106130409374_AddCourseTable1.resx">
       <DependentUpon>202106130409374_AddCourseTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106140310124_AddFKCourseModel.resx">
+      <DependentUpon>202106140310124_AddFKCourseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106140420425_UpdateCategoryModel.resx">
+      <DependentUpon>202106140420425_UpdateCategoryModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106140424302_UpdateCourseModel.resx">
+      <DependentUpon>202106140424302_UpdateCourseModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

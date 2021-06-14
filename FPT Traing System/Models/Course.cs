@@ -11,11 +11,11 @@ namespace FPT_Traing_System.Models
 	public class Course
 	{
 		[Required]
-		[Key]
 		public int Id { get; set; }
 
 
 		[ForeignKey("Category")]
+		[Required]
 		public int CategoryId { get; set; } // forgein key
 		public Category Category { get; set; } //linking object
 

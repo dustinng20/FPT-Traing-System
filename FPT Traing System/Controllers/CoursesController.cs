@@ -1,9 +1,12 @@
 ﻿using FPT_Traing_System.Models;
+using Microsoft.Ajax.Utilities;
+using System.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FPT_Traing_System.viewModel;
 
 namespace FPT_Traing_System.Controllers
 {
@@ -20,19 +23,31 @@ namespace FPT_Traing_System.Controllers
 			_context = new ApplicationDbContext();
 		}
 
-
-		public ActionResult Index()
+		[HttpGet]
+		public ActionResult Index(string searchString)
 		{
-			var courses = _context.Courses.ToList();
+			var coursesInDb = _context.Courses
 
-			return View(courses);
+				.Include(c => c.Category)
+				.ToList();
+
+			if (!searchString.IsNullOrWhiteSpace())
+			{
+				coursesInDb = _context.Courses.Where(c => c.Name.Contains(searchString)).ToList();
+			}
+
+			return View(coursesInDb);
 		}
 
 
 		[HttpGet]
 		public ActionResult Create()
 		{
-			return View();
+			var viewModel = new CourseCategoriesViewModel()
+			{
+				Categories = _context.Categories.ToList()
+			};
+			return View(viewModel);
 		}
 
 		[HttpPost]
@@ -66,7 +81,10 @@ namespace FPT_Traing_System.Controllers
 		public ActionResult Details(int? id)
 		{
 			if (id == null) return HttpNotFound();
-			var category = _context.Courses.SingleOrDefault(c => c.Id == id);
+			var category = _context.Courses
+
+				.Include(c => c.Category)
+				.SingleOrDefault(c => c.Id == id);
 			if (category == null) return HttpNotFound();
 
 			return View(category);

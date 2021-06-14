@@ -20,14 +20,14 @@ namespace FPT_Traing_System.Controllers
 
 		public ActionResult Index(string searchString)
 		{
-			var categories = _context.Categories.ToList();
+			var categoriesInDb = _context.Categories.ToList();
 
 			if (!searchString.IsNullOrWhiteSpace())
 			{
-				categories = _context.Categories.Where(t => t.Name.Contains(searchString)).ToList();
+				categoriesInDb = _context.Categories.Where(t => t.Name.Contains(searchString)).ToList();
 			}
 
-			return View(categories);
+			return View(categoriesInDb);
 		}
 
 

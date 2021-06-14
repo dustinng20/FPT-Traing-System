@@ -10,14 +10,12 @@ namespace FPT_Traing_System.Models
 {
 	public class Category
 	{
-		[Required]
-		[Key]
+
 		public int Id { get; set; }
 
 		[Required]
 		[StringLength(225)]
 		[DisplayName("Category Name")]
-		[Index("Name_Index", IsUnique = true)]
 		public string Name { get; set; } 
 		
 		[Required]
