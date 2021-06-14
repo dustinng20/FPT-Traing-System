@@ -6,9 +6,14 @@
 
 <h2>Course</h2>
 
-<div class="form-group">
-	@Html.ActionLink("Create", "Create", "Courses", null, new { @class = "btn btn-primary" })
-</div>
+
+@if (User.IsInRole("staff"))
+{
+	<div class="form-group">
+		@Html.ActionLink("Create", "Create", "Courses", null, new { @class = "btn btn-primary" })
+	</div>
+}
+
 
 @using (Html.BeginForm("Index", "Courses", FormMethod.Get))
 {
@@ -20,6 +25,8 @@
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">Search</button>
 	</div>
+
+
 }
 
 
@@ -36,18 +43,29 @@
 		@foreach (var course in Model)
 
 		{
-		<tr>
-			<th scope="row">@course.Id</th>
-			<td>@course.Name</td>
-			<td>@course.Category.Name</td>
-			<td>@course.Description</td>
-			<td>
-				@Html.ActionLink("Details", "Details", "Courses", new { id = course.Id }, new { @class = "btn btn-info" })
-				@Html.ActionLink("Edit", "Edit", "Courses", new { id = course.Id }, new { @class = "btn btn-default" })
-				@Html.ActionLink("Delete", "Delete", "Courses", new { id = course.Id }, new { @class = "btn btn-danger" })
+			<tr>
+				<th scope="row">@course.Id</th>
+				<td>@course.Name</td>
+				<td>@course.Category.Name</td>
+				<td>@course.Description</td>
+				<td>
 
-			</td>
-		</tr>
+
+					@if (User.IsInRole("staff") || User.IsInRole("trainee") || User.IsInRole("trainer"))
+					{
+						@Html.ActionLink("Details", "Details", "Courses", new { id = course.Id }, new { @class = "btn btn-info" })
+
+					}
+
+					@if (User.IsInRole("staff"))
+
+					{
+						@Html.ActionLink("Edit", "Edit", "Courses", new { id = course.Id }, new { @class = "btn btn-default" })
+
+						@Html.ActionLink("Delete", "Delete", "Courses", new { id = course.Id }, new { @class = "btn btn-danger" })
+					}
+				</td>
+			</tr>
 		}
 	</tbody>
 </table>

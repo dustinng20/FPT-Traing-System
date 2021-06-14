@@ -18,6 +18,8 @@ namespace FPT_Traing_System.Controllers
 			_context = new ApplicationDbContext(); //use adbc class to connect database
 		}
 
+		[Authorize(Roles = "staff")]
+
 		public ActionResult Index(string searchString)
 		{
 			var categoriesInDb = _context.Categories.ToList();
@@ -29,6 +31,9 @@ namespace FPT_Traing_System.Controllers
 
 			return View(categoriesInDb);
 		}
+		
+		
+		[Authorize(Roles = "staff")]
 
 
 		public ActionResult Details(int? id)
@@ -41,6 +46,8 @@ namespace FPT_Traing_System.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = "staff")]
+
 		public ActionResult Create()
 		{
 			return View();
@@ -48,6 +55,8 @@ namespace FPT_Traing_System.Controllers
 
 
 		[HttpPost]
+		[Authorize(Roles = "staff")]
+
 		public ActionResult Create(Category category)
 		{
 			if (!ModelState.IsValid)
@@ -69,6 +78,8 @@ namespace FPT_Traing_System.Controllers
 
 
 		[HttpGet]
+		[Authorize(Roles = "staff")]
+
 		public ActionResult Edit(int? id)
 		{
 			if (id == null) return HttpNotFound();
@@ -80,6 +91,8 @@ namespace FPT_Traing_System.Controllers
 		}
 
 		[HttpPost]
+		[Authorize(Roles = "staff")]
+
 		public ActionResult Edit(Category category)
 		{
 			var categoryInDb = _context.Categories.SingleOrDefault(t => t.Id == category.Id);
@@ -105,6 +118,7 @@ namespace FPT_Traing_System.Controllers
 
 
 
+		[Authorize(Roles = "staff")]
 
 		public ActionResult Delete(int? id)
 		{

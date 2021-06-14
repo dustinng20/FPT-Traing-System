@@ -6,9 +6,13 @@
 
 <h2>Category</h2>
 
-<div class="form-group">
-	@Html.ActionLink("Create", "Create", "Categories", null, new { @class = "btn btn-primary" })
-</div>
+@if (User.IsInRole("staff"))
+{
+	<div class="form-group">
+		@Html.ActionLink("Create", "Create", "Categories", null, new { @class = "btn btn-primary" })
+	</div>
+}
+
 
 @using (Html.BeginForm("Index", "Categories", FormMethod.Get))
 {
@@ -39,9 +43,17 @@
 				<td>@category.Name</td>
 				<td>@category.Description</td>
 				<td>
-					@Html.ActionLink("Details", "Details", "Categories", new { id = category.Id }, new { @class = "btn btn-info" })
-					@Html.ActionLink("Edit", "Edit", "Categories", new { id = category.Id }, new { @class = "btn btn-default" })
-					@Html.ActionLink("Delete", "Delete", "Categories", new { id = category.Id }, new { @class = "btn btn-danger" })
+					@if (User.IsInRole("staff") || User.IsInRole("trainee") || User.IsInRole("trainer"))
+					{
+						@Html.ActionLink("Details", "Details", "Categories", new { id = category.Id }, new { @class = "btn btn-info" })
+
+					}
+
+					@if (User.IsInRole("staff"))
+					{
+						@Html.ActionLink("Edit", "Edit", "Categories", new { id = category.Id }, new { @class = "btn btn-default" })
+						@Html.ActionLink("Delete", "Delete", "Categories", new { id = category.Id }, new { @class = "btn btn-danger" })
+					}
 
 
 				</td>

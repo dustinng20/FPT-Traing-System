@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FPT_Traing_System.viewModel;
+using Microsoft.AspNet.Identity;
 
 namespace FPT_Traing_System.Controllers
 {
@@ -24,6 +25,7 @@ namespace FPT_Traing_System.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = "staff, trainer, trainee")]
 		public ActionResult Index(string searchString)
 		{
 			var coursesInDb = _context.Courses
@@ -39,35 +41,41 @@ namespace FPT_Traing_System.Controllers
 			return View(coursesInDb);
 		}
 
-
 		[HttpGet]
+		[Authorize(Roles = "staff")]
 		public ActionResult Create()
 		{
 			var viewModel = new CourseCategoriesViewModel()
 			{
 				Categories = _context.Categories.ToList()
 			};
+
 			return View(viewModel);
 		}
 
 		[HttpPost]
+		[Authorize(Roles = "staff")]
 		public ActionResult Create(Course course)
 		{
-
-
 			if (!ModelState.IsValid)
 			{
-				return View(course);
+				var viewModels = new CourseCategoriesViewModel()
+				{
+					Course = course,
+					Categories = _context.Categories.ToList()
+				};
+
+				return View(viewModels);
 			}
 
-
+			//var userId = User.Identity.GetUserId();
 			var newCourse = new Course()
 			{
-				Name = course.Name,
+				Description = course.Description,
 				CategoryId = course.CategoryId,
-				Description = course.Description
-			};
+				Name = course.Name,
 
+			};
 
 			_context.Courses.Add(newCourse);
 			_context.SaveChanges();
@@ -77,6 +85,8 @@ namespace FPT_Traing_System.Controllers
 
 
 
+
+		[Authorize(Roles = "staff, trainer, trainee")]
 
 		public ActionResult Details(int? id)
 		{
@@ -90,6 +100,7 @@ namespace FPT_Traing_System.Controllers
 			return View(category);
 		}
 
+		[Authorize(Roles = "staff")]
 
 		public ActionResult Delete(int? id)
 		{
@@ -107,6 +118,8 @@ namespace FPT_Traing_System.Controllers
 
 
 		[HttpGet]
+		[Authorize(Roles = "staff")]
+
 		public ActionResult Edit(int? id)
 		{
 			if (id == null) return HttpNotFound();
@@ -125,6 +138,8 @@ namespace FPT_Traing_System.Controllers
 
 
 		[HttpPost]
+		[Authorize(Roles = "staff")]
+
 		public ActionResult Edit(Course course)
 		{
 			var courseInDb = _context.Courses.SingleOrDefault(c => c.Id == course.Id);
