@@ -36,5 +36,24 @@ namespace FPT_Traing_System.Controllers
 			if (userInfo == null) return HttpNotFound();
 			return View(userInfo);
 		}
+
+		[HttpPost]
+		public ActionResult Edit(UserInfo userInfo)
+		{
+			if (!ModelState.IsValid)
+			{
+				return View(userInfo);
+			}
+			var userInfoInDb = _context.UserInfos.SingleOrDefault(u => u.UserId.Equals(userInfo.UserId));
+
+			if (userInfoInDb == null) return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+
+			userInfoInDb.FullName = userInfo.FullName;
+			userInfoInDb.Phone = userInfo.Phone;
+
+			_context.SaveChanges();
+
+			return RedirectToAction("Index");
+		}
 	}
 }
