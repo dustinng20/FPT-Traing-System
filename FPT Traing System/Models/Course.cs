@@ -15,8 +15,9 @@ namespace FPT_Traing_System.Models
 		public int Id { get; set; }
 
 
-		[Required]
-		public string Category { get; set; }
+		[ForeignKey("Category")]
+		public int CategoryId { get; set; } // forgein key
+		public Category Category { get; set; } //linking object
 
 
 		[Required]
