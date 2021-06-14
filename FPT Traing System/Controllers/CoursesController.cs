@@ -114,7 +114,13 @@ namespace FPT_Traing_System.Controllers
 			var courseInDb = _context.Courses.SingleOrDefault(c => c.Id == id);
 			if (courseInDb == null) return HttpNotFound();
 
-			return View(courseInDb);
+			var viewModel = new CourseCategoriesViewModel
+			{
+				Course = courseInDb,
+				Categories = _context.Categories.ToList()
+			};
+
+			return View(viewModel);
 		}
 
 
