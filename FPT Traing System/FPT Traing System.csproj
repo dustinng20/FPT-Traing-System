@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202106140424302_UpdateCourseModel.Designer.cs">
       <DependentUpon>202106140424302_UpdateCourseModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106140722110_AddUserIdFKtoCourseModel.cs" />
+    <Compile Include="Migrations\202106140722110_AddUserIdFKtoCourseModel.Designer.cs">
+      <DependentUpon>202106140722110_AddUserIdFKtoCourseModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -321,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106140424302_UpdateCourseModel.resx">
       <DependentUpon>202106140424302_UpdateCourseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106140722110_AddUserIdFKtoCourseModel.resx">
+      <DependentUpon>202106140722110_AddUserIdFKtoCourseModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

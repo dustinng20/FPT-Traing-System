@@ -27,5 +27,12 @@ namespace FPT_Traing_System.Models
 
 		[Required]
 		public string Description { get; set; }
+
+		[Required]
+		[ForeignKey("User")]
+
+		public string UserId { get; set; }
+
+		public ApplicationUser User { get; set; }
 	}
 }
