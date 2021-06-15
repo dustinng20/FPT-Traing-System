@@ -177,9 +177,90 @@ namespace FPT_Traing_System.Controllers
 
 
 
+		[Authorize(Roles = "admin")]
+		[HttpGet]
+		public ActionResult CreateTrainer()
+		{
+			return View();
+		}
+
+		[Authorize(Roles = "admin")]
+		[HttpPost]
+		public async Task<ActionResult> CreateTrainer(RegisterViewModel model)
+		{
+			if (ModelState.IsValid)
+			{
+				var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+				var result = await UserManager.CreateAsync(user, model.Password);
+				UserManager.AddToRole(user.Id, "trainer");
+				if (result.Succeeded)
+				{
+					var userInfo = new UserInfo
+					{
+						FullName = model.FullName,
+						Phone = model.Phone,
+						UserId = user.Id
+					};
+
+					_context.UserInfos.Add(userInfo);
+					_context.SaveChanges();
+
+					return RedirectToAction("Index", "Home");
+				}
+				AddErrors(result);
+			}
+
+			return View(model);
+		}
+
+
+
+
+
+
+		[Authorize(Roles = "staff")]
+		[HttpGet]
+		public ActionResult CreateTrainee()
+		{
+			return View();
+		}
+
+		[Authorize(Roles = "admin")]
+		[HttpPost]
+		public async Task<ActionResult> CreateTrainee(RegisterViewModel model)
+		{
+			if (ModelState.IsValid)
+			{
+				var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+				var result = await UserManager.CreateAsync(user, model.Password);
+				UserManager.AddToRole(user.Id, "trainee");
+				if (result.Succeeded)
+				{
+					var userInfo = new UserInfo
+					{
+						FullName = model.FullName,
+						Phone = model.Phone,
+						UserId = user.Id
+					};
+
+					_context.UserInfos.Add(userInfo);
+					_context.SaveChanges();
+
+					return RedirectToAction("Index", "Home");
+				}
+				AddErrors(result);
+			}
+
+			return View(model);
+		}
+
+
+
 
 		// GET: /Account/Register
 		[AllowAnonymous]
+		[Authorize(Roles = "admin")]
+
 		public ActionResult Register()
 		{
 			return View();
@@ -191,6 +272,7 @@ namespace FPT_Traing_System.Controllers
 
 		//
 		// POST: /Account/Register
+		[Authorize(Roles = "admin")]
 		[HttpPost]
 		[AllowAnonymous]
 		[ValidateAntiForgeryToken]
@@ -200,7 +282,6 @@ namespace FPT_Traing_System.Controllers
 			{
 				var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
 				var result = await UserManager.CreateAsync(user, model.Password);
-				UserManager.AddToRole(user.Id, "trainee");
 				if (result.Succeeded)
 				{
 					var userInfo = new UserInfo

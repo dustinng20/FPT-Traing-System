@@ -1,13 +1,14 @@
 ﻿@model FPT_Traing_System.Models.RegisterViewModel
+
 @{
-	ViewBag.Title = "CreateStaff";
+	ViewBag.Title = "CreateTrainer";
 }
 
-<h2>Create Staff.</h2>
+<h2>Create Trainer</h2>
 
-@using (Html.BeginForm("CreateStaff", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("CreateTrainer", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-	<h4>Create a new Staff account.</h4>
+	<h4>Create a new Trainer account.</h4>
 
 	@Html.AntiForgeryToken()
 	<hr />
@@ -50,7 +51,7 @@
 
 	<div class="form-group">
 		<div class="col-md-offset-2 col-md-10">
-			<input type="submit" class="btn btn-default" value="Create Staff" />
+			<input type="submit" class="btn btn-default" value="Create Trainer" />
 		</div>
 	</div>
 }
