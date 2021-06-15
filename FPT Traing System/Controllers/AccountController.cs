@@ -137,13 +137,57 @@ namespace FPT_Traing_System.Controllers
 			}
 		}
 
-		//
+
+
+		[Authorize(Roles = "admin")]
+		[HttpGet]
+		public ActionResult CreateStaff()
+		{
+			return View();
+		}
+
+		[Authorize(Roles = "admin")]
+		[HttpPost]
+		public async Task<ActionResult> CreateStaff(RegisterViewModel model)
+		{
+			if (ModelState.IsValid)
+			{
+				var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+				var result = await UserManager.CreateAsync(user, model.Password);
+				UserManager.AddToRole(user.Id, "staff");
+				if (result.Succeeded)
+				{
+					var userInfo = new UserInfo
+					{
+						FullName = model.FullName,
+						Phone = model.Phone,
+						UserId = user.Id
+					};
+
+					_context.UserInfos.Add(userInfo);
+					_context.SaveChanges();					
+
+					return RedirectToAction("Index", "Home");
+				}
+				AddErrors(result);
+			}
+
+			return View(model);
+		}
+
+
+
+
 		// GET: /Account/Register
 		[AllowAnonymous]
 		public ActionResult Register()
 		{
 			return View();
 		}
+
+
+
+
 
 		//
 		// POST: /Account/Register
@@ -156,6 +200,7 @@ namespace FPT_Traing_System.Controllers
 			{
 				var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
 				var result = await UserManager.CreateAsync(user, model.Password);
+				UserManager.AddToRole(user.Id, "trainee");
 				if (result.Succeeded)
 				{
 					var userInfo = new UserInfo
