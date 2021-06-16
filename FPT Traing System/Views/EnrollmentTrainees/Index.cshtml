@@ -11,8 +11,8 @@
 		<thead class="thead-light">
 			<tr>
 
-				<th scope="col">Course</th>
-				<th scope="col">Function</th>
+				<th scope="col">Courses</th>
+				<th scope="col">Functions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -22,10 +22,8 @@
 					<td>@course.Name</td>
 					<td>
 
-						@Html.ActionLink("Members", "CourseTrainee", "EnrollmentTrainees", new { id = course.Id }, new { @class = "btn btn-info" }
-)
-						@Html.ActionLink( "Assign Trainee", "AssignTrainee", "EnrollmentTrainees", new { id = course.Id }, new { @class = "btn btn-success" }
-		 )
+						@Html.ActionLink("Members", "CourseTrainee", "EnrollmentTrainees", new { id = course.Id }, new { @class = "btn btn-info" })
+						@Html.ActionLink("Assign", "AssignTrainee", "EnrollmentTrainees", new { id = course.Id }, new { @class = "btn btn-success" })
 					</td>
 				</tr>
 			}

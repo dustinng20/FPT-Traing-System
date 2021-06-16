@@ -314,7 +314,6 @@
     <Content Include="Views\EnrollmentTrainees\Index.cshtml" />
     <Content Include="Views\EnrollmentTrainees\AssignTrainee.cshtml" />
     <Content Include="Views\EnrollmentTrainees\CourseTrainee.cshtml" />
-    <Content Include="Views\EnrollmentTrainees\RemoveTrainee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

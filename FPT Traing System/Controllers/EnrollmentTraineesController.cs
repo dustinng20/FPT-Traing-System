@@ -123,29 +123,16 @@ namespace FPT_Traing_System.Controllers
 		public ActionResult RemoveTrainee(int? id, string userId)
 		{
 
-			var EnrollmentTrainer = _context.EnrollmentTrainers
+			var enrollmentTrainee = _context.EnrollmentTrainees
 				.SingleOrDefault(t => t.CourseId == id && t.UserId == userId);
 
-			if (EnrollmentTrainer == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			if (enrollmentTrainee == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-			_context.EnrollmentTrainers.Remove(EnrollmentTrainer);
+			_context.EnrollmentTrainees.Remove(enrollmentTrainee);
 			_context.SaveChanges();
 
 			return RedirectToAction("CourseTrainee", new { id = id });
 		}
 
-
-		[Authorize(Roles = "trainee")]
-		public ActionResult MineTrainer()
-		{
-			var userId = User.Identity.GetUserId();
-
-			var courses = _context.EnrollmentTrainers
-				.Where(t => t.UserId.Equals(userId))
-				.Select(t => t.Course)
-				.ToList();
-
-			return View(courses);
-		}
 	}
 }

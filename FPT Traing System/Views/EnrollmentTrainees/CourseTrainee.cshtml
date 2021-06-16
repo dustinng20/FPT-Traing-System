@@ -6,9 +6,14 @@
 <h2>Course Trainee Members</h2>
 
 <div class="form-group">
-	@Html.ActionLink("Back to AssignTrainee List", "Index", "EnrollmentTrainees", null, new { @class = "btn btn-primary" }
-	)
+	@Html.ActionLink("Back to Assign Trainee List",
+	"Index",
+	"EnrollmentTrainees",
+	null,
+	new { @class = "btn btn-primary" }
+)
 </div>
+
 @if (User.IsInRole("staff"))
 {
 	<table class="table table-hover">
@@ -26,6 +31,11 @@
 					<td>@user.Email</td>
 					<td>@user.UserName</td>
 					<td>
+						@Html.ActionLink("Remove",
+										 "RemoveTrainee",
+										 "EnrollmentTrainees",
+										 new { id = ViewBag.CourseId, userId = user.Id },
+										 new { @class = "btn btn-danger" })
 					</td>
 				</tr>
 			}
