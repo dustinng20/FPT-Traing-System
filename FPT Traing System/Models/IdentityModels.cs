@@ -28,6 +28,8 @@ namespace FPT_Traing_System.Models
 		public DbSet<Course> Courses { get; set; }
 		public DbSet<UserInfo> UserInfos { get; set; }
 		public DbSet<EnrollmentTrainer> EnrollmentTrainers { get; set; }
+		public DbSet<EnrollmentTrainee> EnrollmentTrainees { get; set; }
+
 
 
 		public ApplicationDbContext()

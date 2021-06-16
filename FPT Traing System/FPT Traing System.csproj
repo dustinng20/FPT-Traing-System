@@ -224,6 +224,10 @@
     <Compile Include="Migrations\202106160826016_AddEnrollmentTrainerTable.Designer.cs">
       <DependentUpon>202106160826016_AddEnrollmentTrainerTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106160827560_AddEnrollmentTraineeTable.cs" />
+    <Compile Include="Migrations\202106160827560_AddEnrollmentTraineeTable.Designer.cs">
+      <DependentUpon>202106160827560_AddEnrollmentTraineeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -358,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106160826016_AddEnrollmentTrainerTable.resx">
       <DependentUpon>202106160826016_AddEnrollmentTrainerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106160827560_AddEnrollmentTraineeTable.resx">
+      <DependentUpon>202106160827560_AddEnrollmentTraineeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
