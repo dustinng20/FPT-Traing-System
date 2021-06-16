@@ -16,6 +16,11 @@ namespace FPT_Traing_System.Models
 		public ApplicationUser User { get; set; }
 
 
+		[Column(Order = 2)] //2key
+		[ForeignKey("Category")]
+		[Required]
+		public int CategoryId { get; set; } // forgein key
+		public Category Category { get; set; } //linking object
 
 
 		[Key]
