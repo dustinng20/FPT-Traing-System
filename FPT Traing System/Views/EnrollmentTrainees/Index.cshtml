@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FPT_Traing_System.Models.Course>
+@{
+	ViewBag.Title = "Index";
+}
+<h2>Assign Trainee to Course Index</h2>
+
+@if (User.IsInRole("staff"))
+{
+
+	<table class="table">
+		<thead class="thead-light">
+			<tr>
+
+				<th scope="col">Course</th>
+				<th scope="col">Function</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var course in Model)
+			{
+				<tr>
+					<td>@course.Name</td>
+					<td>
+
+						@Html.ActionLink("Members", "CourseTrainee", "EnrollmentTrainees", new { id = course.Id }, new { @class = "btn btn-info" }
+)
+						@Html.ActionLink( "Assign Trainee", "AssignTrainee", "EnrollmentTrainees", new { id = course.Id }, new { @class = "btn btn-success" }
+		 )
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+}

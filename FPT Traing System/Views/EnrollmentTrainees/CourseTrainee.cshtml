@@ -1,0 +1,34 @@
+﻿@model IEnumerable<FPT_Traing_System.Models.ApplicationUser>
+@{
+	ViewBag.Title = "CourseTrainee";
+}
+
+<h2>Course Trainee Members</h2>
+
+<div class="form-group">
+	@Html.ActionLink("Back to AssignTrainee List", "Index", "EnrollmentTrainees", null, new { @class = "btn btn-primary" }
+	)
+</div>
+@if (User.IsInRole("staff"))
+{
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Email</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var user in Model)
+			{
+				<tr>
+					<td>@user.Email</td>
+					<td>@user.UserName</td>
+					<td>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}

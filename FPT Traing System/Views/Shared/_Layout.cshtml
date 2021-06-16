@@ -24,7 +24,7 @@
 
 					@if (Request.IsAuthenticated)
 					{
-						if (User.IsInRole("admin") || User.IsInRole("staff") || User.IsInRole("trainee") || User.IsInRole("trainer"))
+						if (User.IsInRole("admin") || User.IsInRole("trainee") || User.IsInRole("trainer"))
 						{
 							<li>@Html.ActionLink("Home", "Index", "Home")</li>
 
@@ -48,7 +48,11 @@
 						if (User.IsInRole("staff"))
 						{
 							<li>@Html.ActionLink("Create Trainee", "CreateTrainee", "Account")</li>
-						}
+							<li>@Html.ActionLink("Assign Trainee to Course", "Index", "EnrollmentTrainees")</li>
+
+
+							
+								}
 					}
 
 				</ul>

@@ -1,0 +1,25 @@
+﻿@model FPT_Traing_System.viewModel.EnrollmentTraineeViewModel
+@{
+	ViewBag.Title = "AssignTrainee";
+}
+
+<h2>Asign Trainee To Course</h2>
+
+@Html.ValidationSummary(false, "", new { @class = "bg-danger" })
+
+@using (Html.BeginForm("AssignTrainee", "EnrollmentTrainees", FormMethod.Post))
+{
+
+	<div class="form-group">
+		USERNAME
+		@Html.HiddenFor(m => m.CourseId)
+		@Html.DropDownListFor(m => m.UserId,
+		 new SelectList(Model.Users, "Id", "Username"),
+		 new { @class = "form-control" }
+		 )
+	</div>
+
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Add to Course</button>
+	</div>
+}
