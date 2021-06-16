@@ -55,5 +55,8 @@ namespace FPT_Traing_System.Controllers
 
 			return RedirectToAction("Index");
 		}
+
+
+
 	}
 }
