@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\EnrollmentTraineesController.cs" />
+    <Compile Include="Controllers\EnrollmentTrainersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserInfosController.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="viewModel\CourseCategoriesViewModel.cs" />
     <Compile Include="viewModel\EnrollmentTraineeViewModel.cs" />
+    <Compile Include="viewModel\EnrollmentTrainerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -314,6 +316,9 @@
     <Content Include="Views\EnrollmentTrainees\Index.cshtml" />
     <Content Include="Views\EnrollmentTrainees\AssignTrainee.cshtml" />
     <Content Include="Views\EnrollmentTrainees\CourseTrainee.cshtml" />
+    <Content Include="Views\EnrollmentTrainers\AssignTrainer.cshtml" />
+    <Content Include="Views\EnrollmentTrainers\CourseTrainer.cshtml" />
+    <Content Include="Views\EnrollmentTrainers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,7 +2,7 @@
 @{
 	ViewBag.Title = "Index";
 }
-<h2>Assign Trainee to Course Index</h2>
+<h2>Assign Trainer to Course Index</h2>
 
 @if (User.IsInRole("staff"))
 {
@@ -12,22 +12,20 @@
 			<tr>
 
 				<th scope="col">Courses</th>
-				<th scope="col">Categories</th>
 				<th scope="col">Functions</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach (var course in Model)
 			{
-			<tr>
-				<td>@course.Name</td>
-				<td>@course.Category.Name</td>
-				<td>
+				<tr>
+					<td>@course.Name</td>
+					<td>
 
-					@Html.ActionLink("Members", "CourseTrainee", "EnrollmentTrainees", new { id = course.Id }, new { @class = "btn btn-info" })
-					@Html.ActionLink("Assign", "AssignTrainee", "EnrollmentTrainees", new { id = course.Id }, new { @class = "btn btn-success" })
-				</td>
-			</tr>
+						@Html.ActionLink("Members", "CourseTrainer", "EnrollmentTrainers", new { id = course.Id }, new { @class = "btn btn-info" })
+						@Html.ActionLink("Assign", "AssignTrainer", "EnrollmentTrainers", new { id = course.Id }, new { @class = "btn btn-success" })
+					</td>
+				</tr>
 			}
 		</tbody>
 	</table>

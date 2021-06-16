@@ -3,6 +3,8 @@
 	ViewBag.Title = "Home Page";
 }
 
+
+
 <div class="jumbotron">
 	<h1>FPT TRAINING SYSTEM</h1>
 
@@ -33,6 +35,15 @@
 	{
 		<p>Username: @User.Identity.GetUserName()</p>
 
+	}
+</div>
+
+
+<div class="form-group">
+	@if (User.IsInRole("staff"))
+	{
+		<td>@Html.ActionLink("Assign Trainee", "Index", "EnrollmentTrainees", null, new { @class = "btn btn-warning" })</td>
+		<td>@Html.ActionLink("Assign Trainer", "Index", "EnrollmentTrainers", null, new { @class = "btn btn-success" })</td>
 	}
 </div>
 

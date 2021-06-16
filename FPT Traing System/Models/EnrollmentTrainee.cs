@@ -16,8 +16,10 @@ namespace FPT_Traing_System.Models
 		public ApplicationUser User { get; set; }
 
 
+
+
 		[Key]
-		[Column(Order = 2)]
+		[Column(Order = 3)]
 		[ForeignKey("Course")]
 		public int CourseId { get; set; }
 		public Course Course { get; set; }
