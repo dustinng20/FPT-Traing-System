@@ -11,8 +11,8 @@ using System.Web.Mvc;
 
 namespace FPT_Traing_System.Controllers
 {
-    public class EnrollmentTrainersController : Controller
-    {
+	public class EnrollmentTrainersController : Controller
+	{
 		private ApplicationDbContext _context;
 		private UserManager<ApplicationUser> _userManager;
 

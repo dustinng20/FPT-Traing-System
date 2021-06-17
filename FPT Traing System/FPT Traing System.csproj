@@ -230,6 +230,10 @@
     <Compile Include="Migrations\202106160827560_AddEnrollmentTraineeTable.Designer.cs">
       <DependentUpon>202106160827560_AddEnrollmentTraineeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106161529521_DeleteCategoryinEnrollment.cs" />
+    <Compile Include="Migrations\202106161529521_DeleteCategoryinEnrollment.Designer.cs">
+      <DependentUpon>202106161529521_DeleteCategoryinEnrollment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -375,6 +379,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106160827560_AddEnrollmentTraineeTable.resx">
       <DependentUpon>202106160827560_AddEnrollmentTraineeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106161529521_DeleteCategoryinEnrollment.resx">
+      <DependentUpon>202106161529521_DeleteCategoryinEnrollment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

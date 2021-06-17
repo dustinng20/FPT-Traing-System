@@ -12,7 +12,6 @@
 			<tr>
 
 				<th scope="col">Courses</th>
-				<th scope="col">Categories</th>
 				<th scope="col">Functions</th>
 			</tr>
 		</thead>
@@ -21,7 +20,6 @@
 			{
 			<tr>
 				<td>@course.Name</td>
-				<td>@course.Category.Name</td>
 				<td>
 
 					@Html.ActionLink("Members", "CourseTrainee", "EnrollmentTrainees", new { id = course.Id }, new { @class = "btn btn-info" })
