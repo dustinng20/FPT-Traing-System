@@ -2,6 +2,8 @@
 using FPT_Traing_System.viewModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,7 @@ namespace FPT_Traing_System.Controllers
 
 		}
 
+
 		[Authorize(Roles = "staff")]
 		[HttpGet]
 		public ActionResult Index()
@@ -48,6 +51,7 @@ namespace FPT_Traing_System.Controllers
 				.Where(a => a.CourseId == id)
 				.Select(a => a.User)
 				.ToList();
+
 
 			var viewmodel = new EnrollmentTraineeViewModel();
 
@@ -116,7 +120,6 @@ namespace FPT_Traing_System.Controllers
 
 			return View(users);
 		}
-
 
 
 		[HttpGet]

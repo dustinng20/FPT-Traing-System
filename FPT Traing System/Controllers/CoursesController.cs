@@ -28,9 +28,7 @@ namespace FPT_Traing_System.Controllers
 		[Authorize(Roles = "staff, trainer, trainee")]
 		public ActionResult Index(string searchString)
 		{
-			var coursesInDb = _context.Courses
-
-				.Include(c => c.Category)
+			var coursesInDb = _context.Courses.Include(c => c.Category)
 				.ToList();
 
 			if (!searchString.IsNullOrWhiteSpace())

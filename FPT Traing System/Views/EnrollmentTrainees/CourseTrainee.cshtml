@@ -31,11 +31,7 @@
 					<td>@user.Email</td>
 					<td>@user.UserName</td>
 					<td>
-						@Html.ActionLink("Remove",
-										 "RemoveTrainee",
-										 "EnrollmentTrainees",
-										 new { id = ViewBag.CourseId, userId = user.Id },
-										 new { @class = "btn btn-danger" })
+						@Html.ActionLink("Remove", "RemoveTrainee", "EnrollmentTrainees", new { id = ViewBag.CourseId, userId = user.Id }, new { @class = "btn btn-danger" })
 					</td>
 				</tr>
 			}
