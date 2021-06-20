@@ -1,0 +1,44 @@
+﻿
+@model IEnumerable<FPT_Traing_System.viewModel.UserInRolesViewModel>
+
+@{
+	ViewBag.Title = "ViewAllAccount";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-group">
+	<h3 class="box-title">
+		<b>Users with Roles</b>
+	</h3>
+</div>
+
+
+<div class="form-group">
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Email</th>
+				<th scope="col">Roles</th>
+				<th scope="col">Actions</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var user in Model)
+			{
+				<tr>
+					<td>@user.Email</td>
+					<td>@user.Role</td>
+					<td>
+						@Html.ActionLink("Delete", "Delete", "Categories", null, new { @class = "btn btn-danger" })
+						@Html.ActionLink("Edit", "Delete", "Categories", null, new { @class = "btn btn-info" })
+						@Html.ActionLink("Delete", "Delete", "Categories", null, new { @class = "btn btn-default" })
+
+
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

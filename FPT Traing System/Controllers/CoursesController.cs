@@ -26,6 +26,7 @@ namespace FPT_Traing_System.Controllers
 
 		[HttpGet]
 		[Authorize(Roles = "staff, trainer, trainee")]
+
 		public ActionResult Index(string searchString)
 		{
 			var coursesInDb = _context.Courses.Include(c => c.Category)
@@ -38,6 +39,8 @@ namespace FPT_Traing_System.Controllers
 
 			return View(coursesInDb);
 		}
+
+
 
 		[HttpGet]
 		[Authorize(Roles = "staff")]

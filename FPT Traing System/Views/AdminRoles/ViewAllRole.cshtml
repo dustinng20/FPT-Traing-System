@@ -1,0 +1,12 @@
+﻿@model IEnumerable<FPT_Traing_System.viewModel.UserInRolesViewModel>
+@{
+	ViewBag.Title = "ViewAllRole";
+}
+<div>
+	@foreach (var role in Model)
+	{
+		<p>
+			<strong>@role.Name | </strong>
+		</p>
+	}
+</div>

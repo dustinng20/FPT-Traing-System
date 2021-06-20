@@ -39,11 +39,14 @@ namespace FPT_Traing_System.Controllers
 		public ActionResult Details(int? id)
 		{
 			if (id == null) return HttpNotFound();
+
 			var category = _context.Categories.SingleOrDefault(t => t.Id == id);
+
 			if (category == null) return HttpNotFound();
 
 			return View(category);
 		}
+
 
 		[HttpGet]
 		[Authorize(Roles = "staff")]
@@ -89,6 +92,7 @@ namespace FPT_Traing_System.Controllers
 
 			return View(categoryInDb);
 		}
+
 
 		[HttpPost]
 		[Authorize(Roles = "staff")]
